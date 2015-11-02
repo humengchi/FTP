@@ -1,11 +1,3 @@
-//
-//  FTPMonitor.h
-//  ChannelPlus
-//
-//  Created by Peter on 15/2/3.
-//  Copyright (c) 2015年 Peter. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @interface FTPMonitorInstance : NSObject
