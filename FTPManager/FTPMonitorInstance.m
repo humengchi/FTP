@@ -1,6 +1,8 @@
 #import "FTPMonitorInstance.h"
 #import "FTPManager.h"
 #import "ZipArchive.h"
+#define FTP_ACCOUNT @"hmc"
+#define FTP_PASSWORD @"123456"
 
 @interface FTPMonitorInstance()
 
@@ -24,7 +26,7 @@
 
 - (void)configFTPMonitorWithUserModel:(UserModel *)userModel {
     self.manager = [[FTPManager alloc] init];
-    NSString *host = ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaults_isDeveloperHostMark]) ? FTP_HOST_DEVLOPER : FTP_HOST_DISTRIBUTION;
+    NSString *host = @"192.168.1.1";
     FMServer *server =  [FMServer serverWithDestination:host username:FTP_ACCOUNT password:FTP_PASSWORD];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -83,7 +85,7 @@
         return NO;
     }
     
-    NSString *host = ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaults_isDeveloperHostMark]) ? FTP_HOST_DEVLOPER : FTP_HOST_DISTRIBUTION;
+    NSString *host = @"192.168.1.1";
     FMServer *server = nil;
     // 上传门头照
     if([filePath rangeOfString:@"BN_I_"].location != NSNotFound){
